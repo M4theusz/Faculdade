@@ -1,0 +1,6 @@
+./prova1-noite/matheus2.txt
+./prova1-noite/matheus3.txt
+./prova1-noite/pasta2/2.txt
+./prova1-noite/matheus1.txt
+./prova1-noite/pasta3/pasta31/3.txt
+./prova1-noite/pasta1/1.txt

@@ -1,0 +1,5 @@
+Aluno:Matheus Vinnicios Gomes ROdrigues
+1 - Imprimir "ola mundo" na tela
+echo"Ola mundo"
+2 - Mostrar todo o programa prog.c sem os comentarios
+grep -v // prog.c

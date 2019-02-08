@@ -1,0 +1,85 @@
+Unilasalle-RJ - Trabalho AV2
+Aluno: Matheus Vinnicius Gomes Rodrigues 
+Matricula: 0050013189
+Trabalho AV2 de Laboratorio de Sistemas Operacionais
+Professor: Alex Salgado
+2o. Semestre de 2017   Turno: Noite
+--------------------------------------------------
+
+1-Faça um script shell que receba um nome de arquivo como parametro e 
+responde se este arquivo existe ou não.
+--------------------------------------------------
+#!/bin/bash
+arq=$1
+if [ -f $arq ]
+then
+        echo Arquivo existe.
+else
+        echo Arquivo não existe.
+fi
+--------------------------------------------------
+2-Reescreva o codigo abaixo usando a estrutura for.
+#!/bin/bash
+cont=$1
+fat=1
+while [ $cont -gt 0 ] 
+do
+  fat=$(( $fat * $cont ))
+  cont=$(( $cont - 1 ))
+done
+echo $fat
+--------------------------------------------------
+
+#!/bin/bash
+cont=$1
+fat=1
+for (( i=1; i<=$cont; i++ ))
+do
+        fat=$(( $fat * $i ))
+done
+echo "O fatorial é $fat"
+
+--------------------------------------------------
+3-Usando estrutura de repetição, faça um script para exibir todos os arquivos
+da pasta atual com tamanho = 0kb (vazio).
+--------------------------------------------------
+
+#!/bin/bash
+for nome in $(ls)
+do
+        if [ ! -s $nome ];then
+                echo $nome é arquivo vazio.
+        fi
+done
+
+--------------------------------------------------
+4-Usando estrutura de repetição, faça um script para ler a PASTA ATUAL, calcular e exibir:
+- O total de arquivos lidos
+- O total de arquivos com a extensão .txt 
+- O total de arquivos com a extensão .c
+- O total de arquivos com a extensão .py
+--------------------------------------------------
+
+#!/bin/bash
+cont=0
+contxt=0
+contc=0
+contpy=0
+
+for arq in $(ls)
+do
+        cont=$(( $cont + 1 ))
+        case $arq in
+        *.txt)
+                contxt=$(( $contxt + 1 ));;
+        *c)
+                contc=$(( $contc + 1 ));;
+        *py)
+                contpy=$(( $contpy + 1 ));;
+        *) ;;
+        esac
+done
+echo O total de arquivos lidos são $cont
+echo O total de arquivos com a extensão .txt são $contxt
+echo O total de arquivos com a extensão .c são $contc
+echo O total de arquivos com a extensão .py são $contpy

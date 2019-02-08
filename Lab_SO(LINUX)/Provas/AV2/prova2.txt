@@ -1,0 +1,124 @@
+Unilasalle-RJ - AV2
+Aluno: Matheus Vinnicius Gomes Rodrigues                                Matricula:0050013189
+Prova Av2 de Laboratorio de Sistemas Operacionais
+Professor: Alex Salgado
+2o. Semestre de 2017   Turno: Noite
+--------------------------------------------------
+1-(valor 1,5 pontos) Quantos erros tem no script abaixo? Qual(is) são eles?
+case "$file" in
+    *.txt}
+        echo "É um arquivo de texto."
+        cat "$file"
+
+    *.gif|*.jpg|*.png}
+        echo "É uma figura."
+        xloadimage "$file"
+
+    *}
+        echo "Não sei que arquivo é esse."
+
+esac
+
+2-(valor 1,5 pontos) Crie um script chamado envia_github “mensagem”
+Este script deverá enviar todos os arquivos modificados para o github. 
+
+Com isso evita-se a necessidade de digitar todos os comando do git sempre que 
+quiser subir um arquivo para o repositorio Github.com
+
+3-(valor 2,0 pontos) Faça um script para receber um arquivo como parâmetro e se o arquivo 
+estiver vazio, excluí-lo seguido da mensagem, “arquivo xx excluído”.
+Senão, enviar mensagem “arquivo não pode ser excluído pois contém informações”
+Se o arquivo não existir, emitir mensagem “arquivo inexiste”
+
+4-(valor 2,0 pontos) Usando estrutura de repetição, faça um script para calcular e exibir quantas
+pastas e quantos arquivos tem na pasta atual.
+
+
+
+*******************
+Ao final, envie a sua resposta para o seu github e ṕreencha o form abaixo:
+https://goo.gl/forms/y1RjAKdrFAxg7X7H2
+
+
+
+
+
+
+-------------------------------------------------------------------
+				RESPOSTAS
+------------------------------------------------------------------
+
+QUESTÃO 1: 
+
+3 erros iguais - no case não são chaves e sim parêntesis. trocar } por )
+
+2 erros - falta de espaçamento dos |
+
+3 erros iguais - falta de ;; ao final de cada caso
+
+1 erro - faltou jogar o parametro para  a variavel file
+
+total de 9 erros
+
+-------------------------------------------------------------------
+
+
+-------------------------------------------------------------------
+QUESTÃO 2-
+#!/bin/bash
+
+#configura nome e email
+
+git config --global user.name "M4theusz"
+git config --globa user.email "matheusvinnicios@hotmail.com"
+
+git add *
+git commit -m "$1"
+git push
+
+------------------------------------------------------------------
+
+------------------------------------------------------------------
+QUESTÃO 3-
+
+
+#!bin/bash
+
+arq=$1
+
+if [ -f $arq ]
+then
+	echo -e "Arquivo $arq existe"
+	if [ -s $arq ]
+	then
+		echo -e "Arquivo $arq não pode ser excluido pois contem informacao"
+		
+	else
+		echo -e "Arquivo $arq esta vazio e sera excluido"
+		rm $arq
+	fi
+else
+
+echo -e "Arquivo $arq Inexistente"
+fi
+------------------------------------------------------------------------------
+
+------------------------------------------------------------------------------
+
+QUESTÃO 4-
+#!/bin/bash
+cont=0
+
+for j in $(ls ~)
+
+do
+
+  echo "$j"
+
+  let cont=$cont+1
+
+done
+
+ echo "Numero de arquivos e pastas é:" "$cont"
+
+---------------------------------------------------------------------------------
